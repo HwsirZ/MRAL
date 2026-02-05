@@ -1,0 +1,46 @@
+# @package _global_
+
+defaults:
+  - pointnav_base
+  - /habitat/dataset/pointnav: gibson
+  - habitat/task/measurements: top_down_map
+  - _self_
+
+habitat:
+  environment:
+    max_episode_steps: 500
+  task:
+    measurements:
+      top_down_map:
+        type: TopDownMap
+        map_padding: 3
+        map_resolution: 1024
+
+        draw_source: True
+        draw_border: True
+        draw_shortest_path: False
+        draw_view_points: False
+        draw_goal_positions: False
+        draw_goal_aabbs: False
+
+        fog_of_war:
+          draw: False
+          visibility_dist: 10.0
+          fov: 90
+  simulator:
+    should_setup_semantic_ids: false
+    scene_dataset: default
+    scene: Adrian.glb
+    agents:
+      main_agent:
+        sim_sensors:
+          rgb_sensor:
+            width: 256
+            height: 256
+          depth_sensor:
+            width: 256
+            height: 256
+  dataset:
+    content_scenes: ["Adrian"]
+    scenes_dir: /data2/wukaitong/gibson/data/scene_datasets
+    data_path: /data1/user2025263063/project/MARLObjectNav/envs/habitat/habitat-lab/data/datasets/pointnav/gibson/v1/train/train.json.gz

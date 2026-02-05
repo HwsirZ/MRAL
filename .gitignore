@@ -205,3 +205,26 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# training outputs
+logs/
+output/
+outputs/
+runs/
+wandb/
+lightning_logs/
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.npz
+*.npy
+
+# datasets (example)
+data/
+datasets/
+*.glb
+*.ply
+*.obj
+*.navmesh

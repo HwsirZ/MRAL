@@ -1,7 +1,7 @@
 # @package _global_
 
 defaults:
-  - /benchmark/nav/pointnav: pointnav_base # 基础配置 
+  - pointnav_base
   - /habitat/dataset/pointnav: gibson
   - _self_
 
@@ -9,17 +9,18 @@ habitat:
   environment:
     max_episode_steps: 500
   simulator:
+    should_setup_semantic_ids: false
+    scene_dataset: default
+    scene: Adrian.glb
     agents:
       main_agent:
         sim_sensors:
           rgb_sensor:
-            width: 648
-            height: 480
+            width: 256
+            height: 256
           depth_sensor:
-            width: 648
-            height: 480
+            width: 256
+            height: 256
   dataset:
-    type: PointNav-v1
-    split: train
+    scenes_dir: /data2/wukaitong/gibson/data/scene_datasets
     data_path: /data1/user2025263063/project/MARLObjectNav/envs/habitat/habitat-lab/data/datasets/pointnav/gibson/v1/train/train.json.gz
-    scenes_dir: /data1/user2025263063/project/MARLObjectNav/envs/data/gibsonData/gibson_scene
